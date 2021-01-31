@@ -1,24 +1,24 @@
 package td1.entities;
 
-import td1.abilities.CapableOfRunning;
-import td1.abilities.Jumpable;
+import td1.skill.endurance;
+import td1.skill.Jump;
 
-public class Robot implements  CapableOfRunning, Jumpable {
+public class Robot implements endurance, Jump {
 
-	private int petrol = 10000;
+	private int power = 10000;
+	private int maxJumpHeight=2;
 
 	@Override
 	public String toString() {
-		return "Robot";
+		return "Робот";
 	}
 
 
 
 	@Override
 	public boolean jump(int height) {
-		boolean canJump = petrol>=height;
-		petrol-=height;
-		System.out.println(canJump?"Robot jumped":"Robot can't jump");
+		boolean canJump = height<=maxJumpHeight;
+		System.out.println(canJump?"Робот перепрыгнул":"Робот сломался у стены");
 		return canJump;
 	}
 
@@ -26,9 +26,9 @@ public class Robot implements  CapableOfRunning, Jumpable {
 
 	@Override
 	public boolean run(int distance) {
-		boolean canRun = petrol>=distance;
-		petrol-=distance;
-		System.out.println(canRun?"Robot ran":"Robot can't run");
+		boolean canRun = power >=distance;
+		power -=distance;
+		System.out.println(canRun?"Робот доехал":"у робота села батарейка");
 		return canRun;
 	}
 	

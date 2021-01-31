@@ -1,13 +1,8 @@
 package td1;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import td1.abilities.Able;
-import td1.abilities.CapableOfRunning;
-import td1.abilities.Jumpable;
+import td1.skill.Skills;
 import td1.entities.Cat;
-import td1.entities.Person;
+import td1.entities.Human;
 import td1.entities.Robot;
 import td1.obstacles.Obstacle;
 import td1.obstacles.RunningTrack;
@@ -17,9 +12,9 @@ public class  Main {
 
 	public static void main(String[] args) {
 
-		Able [] participants = {new Cat(), new Person(), new Robot()};
+		Skills[] participants = {new Cat(), new Human(), new Robot()};
 		Obstacle [] obstacles = {new Wall(2), new RunningTrack(1000), 
-				new Wall(3), new RunningTrack(1500), new Wall(15)};
+				new Wall(3), new RunningTrack(1500), new Wall(5)};
 		
 		for(Obstacle obstacle: obstacles) {
 			System.out.println(obstacle);
@@ -31,13 +26,13 @@ public class  Main {
 					}	
 				}
 			}
-			System.out.print("Participants restants :");
+			System.out.print("Прошли испытание :");
 			printParticipants(participants);
 		}		
 	}
 	
-	public static void printParticipants(Able[] participants) {
-		for(Able participant: participants) {
+	public static void printParticipants(Skills[] participants) {
+		for(Skills participant: participants) {
 			if(participant!=null) {
 				System.out.print(" "+participant);
 			}

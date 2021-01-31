@@ -1,10 +1,7 @@
 package td1.obstacles;
 
-import td1.abilities.Able;
-import td1.abilities.CapableOfRunning;
-import td1.abilities.Jumpable;
-import td1.entities.Cat;
-import td1.entities.Robot;
+import td1.skill.Skills;
+import td1.skill.Jump;
 
 public class Wall implements Obstacle{
 
@@ -16,20 +13,20 @@ public class Wall implements Obstacle{
 	}
 
 	@Override
-	public boolean createObstacle(Able a) {
-		if(!(a instanceof Jumpable)) {
+	public boolean createObstacle(Skills a) {
+		if(!(a instanceof Jump)) {
 			return false;	
 		}
 		else {
-			return ((Jumpable)a).jump(height);
+			return ((Jump)a).jump(height);
 		}
 	}
 
 	@Override
 	public String toString() {
-		return "\n************************\n"
-				+ "Wall of "+height+" meters"+
-				"\n************************";
+		return "\n------------------------\n"
+				+ "Перепрыгнуть стену в "+height+" метра"+
+				"\n------------------------";
 	}
 	
 }

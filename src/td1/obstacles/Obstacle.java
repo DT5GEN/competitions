@@ -1,7 +1,9 @@
 package td1.obstacles;
 
-import td1.abilities.Able;
+import td1.skill.Skills;
 
 public interface Obstacle {
-	boolean createObstacle(Able a);
+	default boolean createObstacle(Skills a) {
+		return false;
+	}
 }
